@@ -2,12 +2,13 @@ from __future__ import annotations
 
 import sys
 
+data={'a':11,'b':2,'c':4,'d':3,'e':14,'f':5,'g':3,'i':6}
 
 class Letter:
     def __init__(self, letter: str, freq: int):
         self.letter: str = letter
         self.freq: int = freq
-        self.bitstring: dict[str, str] = {}
+        self.bitstring: dict[str, str] = {data}
 
     def __repr__(self) -> str:
         return f"{self.letter}:{self.freq}"
@@ -25,7 +26,7 @@ def parse_file(file_path: str) -> list[Letter]:
     Read the file and build a dict of all letters and their
     frequencies, then convert the dict into a list of Letters.
     """
-    chars: dict[str, int] = {}
+    chars: dict[str, int] = {data}
     with open(file_path) as f:
         while True:
             c = f.read(1)
@@ -84,4 +85,3 @@ def huffman(file_path: str) -> None:
             if not c:
                 break
             print(letters[c], end=" ")
-    print()
